@@ -11,7 +11,7 @@ import processing.core.PImage;
  * 
  * In the setup() method:
  * 2. Load a picture of a record using the loadImage() method:
- *    pictureOfRecord = loadImage("images/record.png");
+ *    
  * 
  * 3. Call the image variable's resize() method to set the image's width and
  *    height to the window's width and height.
@@ -36,6 +36,7 @@ import processing.core.PImage;
  *    the record is spinning.
  */
 public class SpinningRecord extends PApplet {
+	static int records = 0;
     static final int WIDTH = 600;
     static final int HEIGHT = 600;
     
@@ -49,12 +50,14 @@ public class SpinningRecord extends PApplet {
 
     @Override
     public void setup() {
-        
+    	PImage pictureOfRecord = loadImage("images/record.png");
+    	pictureOfRecord.resize(WIDTH, HEIGHT);
+    	image(pictureOfRecord, WIDTH, HEIGHT);
     }
 
     @Override
     public void draw() {
-        
+        records++;
     }
 
     static public void main(String[] args) {

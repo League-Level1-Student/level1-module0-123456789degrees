@@ -50,14 +50,20 @@ public class SpinningRecord extends PApplet {
 
     @Override
     public void setup() {
-    	PImage pictureOfRecord = loadImage("images/record.png");
+    	pictureOfRecord = loadImage("images/record.png");
     	pictureOfRecord.resize(WIDTH, HEIGHT);
-    	image(pictureOfRecord, WIDTH, HEIGHT);
+    	image(pictureOfRecord, 0, 0);
     }
 
     @Override
     public void draw() {
-        records++;
+    	if (mousePressed) {
+    		song.play();
+    		records++;
+            rotateImage(pictureOfRecord, 5);
+            image(pictureOfRecord, 0, 0);
+    	}
+    	song.stop();
     }
 
     static public void main(String[] args) {
